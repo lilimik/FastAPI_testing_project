@@ -1,0 +1,13 @@
+version: "3.2"
+
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+  db:
+    image: postgres
+    ports:
+      - 5444:5432
+    volumes:
+      - ./schema.sql:/docker-entrypoint-initdb.d/init.sql
